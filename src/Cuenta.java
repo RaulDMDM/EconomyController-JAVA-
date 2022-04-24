@@ -7,13 +7,12 @@ public class Cuenta {
 
     private double saldo;
     private Usuario usuario;
-    private List<Gasto> gastos;
+    private List<Gasto> gastos = new ArrayList<>();;
     private List<Ingreso> ingresos = new ArrayList<>();
     
     public Cuenta(Usuario usuario){ //Constructor de la clase Cuenta
 
-        usuario=new Usuario(); //Creamos un nuevo objeto en la clase Usuario, agregando un nuevo usuario al programa
-        this.saldo=0; //El saldo inicial al crear el usuario será de 0
+        this.setUsuario(usuario);
 
     }
 
@@ -40,7 +39,7 @@ public class Cuenta {
         //cantidad y descripcion, tendremos que asignarselo)
 
         saldo += ingresoCantidad; //Le sumamos a la variable saldo la cantidad que metemos en ingreso. 
-        return 0.0; //Como base, devolvera 0.
+        return ingresoCantidad; //Como base, devolvera 0.
     }
 
     public double addGasto(String gastoDescripcion, double gastoCantidad){
@@ -59,14 +58,24 @@ public class Cuenta {
 
     }
 
-    List<Ingreso> getIngresos(){
+    public List<Ingreso> getIngresos(){
 
+        return ingresos;
          
     }
 
-    List<Gasto> getGastos(){
+    public List<Gasto> getGastos(){
+
+        return gastos;
 
     }
+
+
+    @Override
+    public String toString() {
+        return "Usuario: " + this.getUsuario() + " . Su saldo es: " + this.getSaldo();
+    }
+
 
         
 

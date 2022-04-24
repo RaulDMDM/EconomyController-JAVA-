@@ -9,7 +9,7 @@ public class Ingreso extends Dinero { //Creamos el metodo Ingreso. Con "extends"
 
     @Override
     public String toString() { //ToString que nos devolvera el valor de los parametros ingresados de ingreso en un ToString.
-        return "Se han ingresado: " + this.dinero + " ,La descripcion es: " + super.getDescription();
+        return "\nSe han ingresado: " + this.dinero + " ,La descripcion es: " + super.getDescription();
     }
     
 }

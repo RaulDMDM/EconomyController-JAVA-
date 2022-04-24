@@ -1,5 +1,8 @@
 package src;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 public class Usuario {
     
     private String nombre;
@@ -33,13 +36,19 @@ public class Usuario {
 
     public boolean setDNI(String DNI){
 
-        for (int i = 0; i <= DNI.length; i++) {
-            
+        Pattern modelo = Pattern.compile("^[0-9]{8}-?[A-Z]{1}");
+        Matcher correcto = modelo.matcher(DNI);
+        if (correcto.matches()) {
+            this.DNI=DNI;
+            System.out.println("El DNI introducido es correcto.");
+            return true;
+
+        } else {
+            System.out.println("El DNI introducido es incorrecto. Vuelva a introducirlo.");
+            return false;
+
         }
-
-        return false;
-
-    }
-    
+        
+    }  
     
 }
