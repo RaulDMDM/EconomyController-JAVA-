@@ -11,6 +11,10 @@ public class Usuario {
 
     public Usuario(){
 
+        nombre=getNombre();
+        edad=getEdad();
+        DNI=getDNI();
+
     }
 
 
@@ -40,15 +44,23 @@ public class Usuario {
         Matcher correcto = modelo.matcher(DNI);
         if (correcto.matches()) {
             this.DNI=DNI;
-            System.out.println("El DNI introducido es correcto.");
+            
             return true;
 
         } else {
-            System.out.println("El DNI introducido es incorrecto. Vuelva a introducirlo.");
+            
             return false;
 
         }
         
     }  
+
+
+    @Override
+    public String toString() {
+        return "-------------Usuario creado-------------\n"+
+        "Nombre: " + nombre +"\nEdad: " + edad + "\nDNI: " + DNI;
+    }
+
     
 }

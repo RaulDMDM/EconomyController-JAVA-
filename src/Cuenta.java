@@ -13,6 +13,7 @@ public class Cuenta {
     public Cuenta(Usuario usuario){ //Constructor de la clase Cuenta
 
         this.setUsuario(usuario);
+        saldo=0.0;
 
     }
 
@@ -39,21 +40,24 @@ public class Cuenta {
         //cantidad y descripcion, tendremos que asignarselo)
 
         saldo += ingresoCantidad; //Le sumamos a la variable saldo la cantidad que metemos en ingreso. 
-        return ingresoCantidad; //Como base, devolvera 0.
+        return saldo; //Como base, devolvera 0.
     }
 
-    public double addGasto(String gastoDescripcion, double gastoCantidad){
+    public double addGasto(String gastoDescripcion, double gastoCantidad) throws GastoException{ 
 
-        if (gastoCantidad > saldo) { //Se comprueba si el gasto es mayor al saldo de la cuenta. Lo resta y devuelve el valor resultante de saldo.
+        if (gastoCantidad >= (saldo + gastoCantidad)) { //Se comprueba si el gasto es mayor al saldo de la cuenta. Lo resta y devuelve el valor resultante de saldo.
             
             gastos.add(new Gasto(gastoCantidad, gastoDescripcion));
             saldo -= gastoCantidad;
 
+            System.out.println(gastos + "\n");
+
             return saldo;
 
         } else {
-
-            return 0.0;            
+            
+            throw new GastoException("Saldo insuficiente.");
+         
         }
 
     }

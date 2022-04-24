@@ -1,6 +1,11 @@
 package src;
 
-public class GastoException {
-    
+public class GastoException extends RuntimeException {
 
+    public GastoException(String error){
+
+        super(error);
+        
+    }
+    
 }
