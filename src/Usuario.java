@@ -40,7 +40,7 @@ public class Usuario {
 
     public boolean setDNI(String DNI){
 
-        Pattern modelo = Pattern.compile("^[0-9]{8}-?[A-Z]{1}");
+        Pattern modelo = Pattern.compile("^[0-9]{8}-?[a-z,A-Z]{1}");
         Matcher correcto = modelo.matcher(DNI);
         if (correcto.matches()) {
             this.DNI=DNI;

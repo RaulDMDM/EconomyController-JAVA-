@@ -3,10 +3,11 @@ package src;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner input = new Scanner(System.in);
     
     public static void main(String[] args){
 
-        Scanner input = new Scanner(System.in);
+        
         int codigoAccion = 10;
         int indexAccion = 1;
         
@@ -66,7 +67,7 @@ public class Main {
                     String conceptoGasto;
 
                     System.out.println("Importe de gasto: ");
-                    importeGasto = input.nextInt();input.nextLine();
+                    importeGasto = input.nextDouble();input.nextLine();
                     
 
                     System.out.println("Concepto de gasto: ");
@@ -83,7 +84,7 @@ public class Main {
                     String conceptoIngreso;
 
                     System.out.println("Importe de ingreso: ");
-                    importeIngreso = input.nextInt();input.nextLine();
+                    importeIngreso = input.nextDouble();input.nextLine();
                 
 
                     System.out.println("Concepto de ingreso: ");

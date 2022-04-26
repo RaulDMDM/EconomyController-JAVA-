@@ -45,21 +45,23 @@ public class Cuenta {
 
     public double addGasto(String gastoDescripcion, double gastoCantidad) throws GastoException{ 
 
-        if (gastoCantidad >= (saldo + gastoCantidad)) { //Se comprueba si el gasto es mayor al saldo de la cuenta. Lo resta y devuelve el valor resultante de saldo.
+        try {
+            if (gastoCantidad == saldo) { //Se comprueba si el gasto es mayor al saldo de la cuenta. Lo resta y devuelve el valor resultante de saldo.
             
-            gastos.add(new Gasto(gastoCantidad, gastoDescripcion));
-            saldo -= gastoCantidad;
-
-            System.out.println(gastos + "\n");
-
-            return saldo;
-
-        } else {
+                gastos.add(new Gasto(gastoCantidad, gastoDescripcion));
+                saldo -= gastoCantidad;
+    
+                System.out.println(gastos + "\n");
+    
+                return saldo;
+    
+            } 
+        } catch (GastoException e) {
             
-            throw new GastoException("Saldo insuficiente.");
-         
+            throw new GastoException("Importe insuficiente.");
         }
-
+        
+        return saldo;
     }
 
     public List<Ingreso> getIngresos(){
