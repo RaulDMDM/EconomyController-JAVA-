@@ -1,10 +1,10 @@
 package src;
 
-public class GastoException extends RuntimeException {
+public class GastoException extends Exception {
 
     public GastoException(String error){
-        super(error);
-        
+        super("Importe insuficiente");
+
     }
     
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner input = new Scanner(System.in);
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws GastoException{
 
         
         int codigoAccion = 10;
@@ -44,7 +44,7 @@ public class Main {
 
         Cuenta cuenta = new Cuenta(usuario);
 
-        while (indexAccion > 0 || indexAccion < 0) {
+        while (indexAccion != 0) {
 
             
             System.out.println("Realiza una nueva acción");
@@ -107,16 +107,22 @@ public class Main {
                     break;
                 case 5:
 
-                    System.out.println(cuenta.getSaldo());
-                    
-                    break;
+                System.out.println(cuenta.getSaldo());
+                
+                break;
 
-                default: 
-                    System.out.println("Codigo incorrecto.");
-                    break;
+                default:
+                    if (codigoAccion == 0) {
+                    
+                        System.out.println("Fin del programa.\nGracias por utilizar la aplicación.");
+                    
+                    }else{
+                        System.out.println("Codigo incorrecto.");
+                    }
+
+                break;
             }
-        }
+        } 
         
-        System.out.println("Fin del programa.\nGracias por utilizar la aplicación.");
     }
 }
