@@ -18,6 +18,8 @@ public class Cuenta {
     }
 
     public double getSaldo() { //GETTER de "Saldo". Nos devolvera el valor de saldo.
+        
+        saldo = Math.round(saldo*100.0)/100.0; //Redondeo de saldo a dos decimales, extraido de: https://www.delftstack.com
         return this.saldo;
     }
 
@@ -43,9 +45,9 @@ public class Cuenta {
         return saldo; //Como base, devolvera 0.
     }
 
-    public double addGasto(String gastoDescripcion, double gastoCantidad) throws GastoException{ 
+    public double addGasto(String gastoDescripcion, double gastoCantidad){ //Añadir nuevo objeto en la clase Gasto.
 
-        try {
+        try { //En try metemos los valores que se ejecutaran en el caso de que estos cumplan las condiciones para que no salte la excepcion.
 
             if (gastoCantidad <= saldo) { //Se comprueba si el gasto es mayor al saldo de la cuenta. Lo resta y devuelve el valor resultante de saldo.
             
@@ -55,13 +57,13 @@ public class Cuenta {
                 System.out.println(gastos + "\n");
         
                 return saldo;
-            }else{
+            }else{ //Si no se cumplen las condiciones del if, se llama a la clase GastoException para que salte el mensaje introducido.
 
             throw new GastoException("Importe insuficiente.");
 
             }
             
-        } catch (GastoException e) {
+        } catch (GastoException e) { //Imprimimos por consola la excepcion y el programa continua, devolviendonos al menu.
             System.out.println(e);
 
         }
@@ -69,27 +71,23 @@ public class Cuenta {
         return saldo;
     }
 
-    public List<Ingreso> getIngresos(){
+    public List<Ingreso> getIngresos(){ //Getter de ingresos. Nos devuelve el listado de ingresos.
 
         return ingresos;
          
     }
 
-    public List<Gasto> getGastos(){
+    public List<Gasto> getGastos(){ //Getter de gastos. Nos devuelve el listado de gastos.
 
         return gastos;
 
     }
 
-
+    //Este ToString nos devuelve el saldo del usuario.
     @Override
     public String toString() {
-        return "Usuario: " + this.getUsuario() + " . Su saldo es: " + this.getSaldo();
+        return "Usuario: " + usuario.getNombre() + " . Su saldo es: " + this.getSaldo();
     }
-
-
-        
-
 
 
 }

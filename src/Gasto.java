@@ -9,7 +9,7 @@ public class Gasto extends Dinero{ //Creamos el metodo "Gasto". Con extends hace
 
     @Override
     public String toString() { //Con este ToString sacamos los valores ingresados en dinero y descripcion para este caso.
-        return "El gasto es de: " + this.dinero + " ,La descripción es: " + super.getDescription();
+        return "\nEl gasto es de: " + this.dinero + " ,La descripción es: " + super.getDescription();
     }
     
 }
